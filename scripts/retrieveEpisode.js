@@ -9,8 +9,7 @@ function getEpisode(date) {
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState === 4 && xhttp.status === 200) {
 			document.getElementById('EpisodeOfTheDay').innerHTML = xhttp.responseText;
-		}
-		if (xhttp.readyState === 4 && xhttp.status === 404) {
+		} else if (xhttp.readyState === 4 && xhttp.status === 404) {
 			getMissingEpisode();
 		}
 	}
