@@ -3,11 +3,19 @@ h2 {
     margin-bottom: 0;
 }
 
-#SiteTitle {
+#SiteTitle, #Subtitle {
     text-align: center;
-    font-size: 62px;
-    text-shadow: 0 0 5px #f1ebdc;
+    text-shadow: 0 0 8px #f1ebdc;
+}
+
+#SiteTitle {
     margin-top: 15px;
+    margin-bottom: 0;
+    font-size: 62px;
+}
+
+#Subtitle {
+    margin-top: 0;
 }
 
 a.episodeLink {
