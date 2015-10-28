@@ -28,12 +28,25 @@ audio {
     width: 100%;
 }
 
-a[data-index] {
+pre a[role=clip] {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    margin: 0;
+
+    &:hover {
+        background-color: #f1ebdc;
+    }
+}
+
+a[role=clip] {
     color: #0d4248;
     font-size: 10px;
     vertical-align: super;
     cursor: pointer;
     padding: 1px;
+    margin: 1px;
 
     &:hover {
         outline: 1px solid black;
