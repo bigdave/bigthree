@@ -14,8 +14,8 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-    background: #fff url('http://www.thebig3podcast.com/wp-content/themes/tb3/images/big3monitorart2.jpg');
-    background-size: 100%;
+    background: url('http://www.thebig3podcast.com/wp-content/themes/tb3/images/big3monitorart2.jpg') no-repeat center center fixed;
+    background-size: cover;
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
@@ -79,6 +79,10 @@ li {
 h1, h2, h3, h4, h5, h6, #Subtitle, #Search input {
     font-family: 'Sancreek', cursive;
     font-weight: 400;
+}
+
+h1 {
+    transition: 1s;
 }
 
 /**
