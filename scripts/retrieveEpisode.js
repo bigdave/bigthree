@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
 	episode = getEpisode();
+
+	var searchInput = document.querySelector('#Search input');
+	searchInput.value = getTodaysDate();
+
+	searchInput.addEventListener('change', function() {
+		var date = this.value;
+		getEpisode(date.substr(5, 2) + date.substr(8, 2));
+	}.bind(searchInput));
 });
+
+function getTodaysDate() {
+	var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    return yyyy + '-' + mm + '-' + dd;
+}
 
 function getEpisode(date) {
 	date = date || getCurrentDate();
@@ -32,8 +55,6 @@ function getMissingEpisode() {
 	var url = 'days/default.html';
 	xhttp.open('GET', url, true);
 	xhttp.send();
-
-	return date;
 }
 
 function getCurrentDate() {
