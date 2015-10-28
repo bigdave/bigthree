@@ -1,14 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-	episode = getEpisode();
-
+    var regex = new RegExp("[\\?&]d=([^&#]*)");
+	var results = regex.exec(location.search);
 	var searchInput = document.querySelector('#Search input');
-	searchInput.value = getTodaysDate();
+
+	if (results === null) {
+		getEpisode();
+
+		searchInput.value = getTodaysDate();
+	} else {
+		var date = decodeURIComponent(results[1].replace(/\+/g, " "));
+		setDateTo(date);
+		getEpisode(date);
+	}
 
 	searchInput.addEventListener('change', function() {
 		var date = this.value;
 		getEpisode(date.substr(5, 2) + date.substr(8, 2));
 	}.bind(searchInput));
 });
+
+function setDateTo(date) {
+	searchInput = document.querySelector('#Search input');
+	searchInput.value = new Date().getFullYear() + '-' + date.substr(0, 2) + '-' + date.substr(2,2);
+}
 
 function getTodaysDate() {
 	var today = new Date();

@@ -74,4 +74,15 @@ a[role=clip] {
         background-size: 200%;
         background-position-x: center;
     }
+
+    #Search {
+        position: static;
+    }
+}
+
+#Search input {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
