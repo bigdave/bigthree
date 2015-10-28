@@ -59,6 +59,18 @@ a[role=clip] {
     top: 0;
     right: 0;
     margin-right: 5px;
+
+    label {
+        font-size: 14px;
+        display: none;
+    }
+}
+
+#Search input {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 @media screen and (max-width: 800px) {
@@ -76,13 +88,12 @@ a[role=clip] {
     }
 
     #Search {
+        margin-top: 2em;
         position: static;
-    }
-}
+        text-align: center;
 
-#Search input {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+        label {
+            display: inline;
+        }
+    }
 }
