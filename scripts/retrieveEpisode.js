@@ -15,8 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	searchInput.addEventListener('change', function() {
 		var date = this.value;
-		getEpisode(date.substr(5, 2) + date.substr(8, 2));
+		date = date.substr(5, 2) + date.substr(8, 2);
+		history.pushState({date: date}, null, '?d=' + date);
+		getEpisode(date);
 	}.bind(searchInput));
+
+	window.addEventListener('popstate', function(e) {
+		if (e.state) {
+			setDateTo(e.state.date);
+			getEpisode(e.state.date);
+		} else {
+			getEpisode();
+			searchInput.value = getTodaysDate();
+		}
+	});
 });
 
 function setDateTo(date) {
