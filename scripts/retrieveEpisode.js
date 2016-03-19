@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var regex = new RegExp("[\\?&]d=([^&#]*)");
+	var regex = new RegExp("[\\?&]d=([^&#]*)");
 	var results = regex.exec(location.search);
 	var searchInput = document.querySelector('#Search input');
 
@@ -26,17 +26,17 @@ function setDateTo(date) {
 
 function getTodaysDate() {
 	var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
 
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd;
-    }
-    if (mm < 10) {
-        mm = '0' + mm;
-    }
-    return yyyy + '-' + mm + '-' + dd;
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+		dd = '0' + dd;
+	}
+	if (mm < 10) {
+		mm = '0' + mm;
+	}
+	return yyyy + '-' + mm + '-' + dd;
 }
 
 function getEpisode(date) {
@@ -49,7 +49,7 @@ function getEpisode(date) {
 		} else if (xhttp.readyState === 4 && xhttp.status === 404) {
 			getMissingEpisode();
 		}
-	}
+	};
 
 	var url = 'days/' + date + '.html';
 	xhttp.open('GET', url, true);
@@ -64,7 +64,7 @@ function getMissingEpisode() {
 		if (xhttp.readyState === 4 && xhttp.status === 200) {
 			document.getElementById('EpisodeOfTheDay').innerHTML = xhttp.responseText;
 		}
-	}
+	};
 
 	var url = 'days/default.html';
 	xhttp.open('GET', url, true);
